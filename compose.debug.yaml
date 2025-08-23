@@ -1,0 +1,16 @@
+# Please refer https://aka.ms/HTTPSinContainer on how to setup an https developer certificate for your ASP.NET Core service.
+
+services:
+  hiremindbackend:
+    image: hiremindbackend
+    build:
+      context: .
+      dockerfile: HireMind Backend/Dockerfile
+      args:
+        - configuration=Debug
+    ports:
+      - 5172:5172
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+    volumes:
+      - ~/.vsdbg:/remote_debugger:rw

@@ -1,0 +1,33 @@
+D:\courses\Projects\HireMind Backend\HireMind Backend\bin\Debug\net8.0\appsettings.Development.json
+D:\courses\Projects\HireMind Backend\HireMind Backend\bin\Debug\net8.0\appsettings.json
+D:\courses\Projects\HireMind Backend\HireMind Backend\bin\Debug\net8.0\HireMind Backend.exe
+D:\courses\Projects\HireMind Backend\HireMind Backend\bin\Debug\net8.0\HireMind Backend.deps.json
+D:\courses\Projects\HireMind Backend\HireMind Backend\bin\Debug\net8.0\HireMind Backend.runtimeconfig.json
+D:\courses\Projects\HireMind Backend\HireMind Backend\bin\Debug\net8.0\HireMind Backend.dll
+D:\courses\Projects\HireMind Backend\HireMind Backend\bin\Debug\net8.0\HireMind Backend.pdb
+D:\courses\Projects\HireMind Backend\HireMind Backend\bin\Debug\net8.0\Microsoft.AspNetCore.OpenApi.dll
+D:\courses\Projects\HireMind Backend\HireMind Backend\bin\Debug\net8.0\Microsoft.OpenApi.dll
+D:\courses\Projects\HireMind Backend\HireMind Backend\bin\Debug\net8.0\Swashbuckle.AspNetCore.Swagger.dll
+D:\courses\Projects\HireMind Backend\HireMind Backend\bin\Debug\net8.0\Swashbuckle.AspNetCore.SwaggerGen.dll
+D:\courses\Projects\HireMind Backend\HireMind Backend\bin\Debug\net8.0\Swashbuckle.AspNetCore.SwaggerUI.dll
+D:\courses\Projects\HireMind Backend\HireMind Backend\obj\Debug\net8.0\HireMind Backend.csproj.AssemblyReference.cache
+D:\courses\Projects\HireMind Backend\HireMind Backend\obj\Debug\net8.0\HireMind Backend.GeneratedMSBuildEditorConfig.editorconfig
+D:\courses\Projects\HireMind Backend\HireMind Backend\obj\Debug\net8.0\HireMind Backend.AssemblyInfoInputs.cache
+D:\courses\Projects\HireMind Backend\HireMind Backend\obj\Debug\net8.0\HireMind Backend.AssemblyInfo.cs
+D:\courses\Projects\HireMind Backend\HireMind Backend\obj\Debug\net8.0\HireMind Backend.csproj.CoreCompileInputs.cache
+D:\courses\Projects\HireMind Backend\HireMind Backend\obj\Debug\net8.0\HireMind Backend.MvcApplicationPartsAssemblyInfo.cs
+D:\courses\Projects\HireMind Backend\HireMind Backend\obj\Debug\net8.0\HireMind Backend.MvcApplicationPartsAssemblyInfo.cache
+D:\courses\Projects\HireMind Backend\HireMind Backend\obj\Debug\net8.0\staticwebassets.build.json
+D:\courses\Projects\HireMind Backend\HireMind Backend\obj\Debug\net8.0\staticwebassets.development.json
+D:\courses\Projects\HireMind Backend\HireMind Backend\obj\Debug\net8.0\staticwebassets\msbuild.HireMind Backend.Microsoft.AspNetCore.StaticWebAssets.props
+D:\courses\Projects\HireMind Backend\HireMind Backend\obj\Debug\net8.0\staticwebassets\msbuild.build.HireMind Backend.props
+D:\courses\Projects\HireMind Backend\HireMind Backend\obj\Debug\net8.0\staticwebassets\msbuild.buildMultiTargeting.HireMind Backend.props
+D:\courses\Projects\HireMind Backend\HireMind Backend\obj\Debug\net8.0\staticwebassets\msbuild.buildTransitive.HireMind Backend.props
+D:\courses\Projects\HireMind Backend\HireMind Backend\obj\Debug\net8.0\staticwebassets.pack.json
+D:\courses\Projects\HireMind Backend\HireMind Backend\obj\Debug\net8.0\scopedcss\bundle\HireMind Backend.styles.css
+D:\courses\Projects\HireMind Backend\HireMind Backend\obj\Debug\net8.0\HireMind.61940CAA.Up2Date
+D:\courses\Projects\HireMind Backend\HireMind Backend\obj\Debug\net8.0\HireMind Backend.dll
+D:\courses\Projects\HireMind Backend\HireMind Backend\obj\Debug\net8.0\refint\HireMind Backend.dll
+D:\courses\Projects\HireMind Backend\HireMind Backend\obj\Debug\net8.0\HireMind Backend.pdb
+D:\courses\Projects\HireMind Backend\HireMind Backend\obj\Debug\net8.0\HireMind Backend.genruntimeconfig.cache
+D:\courses\Projects\HireMind Backend\HireMind Backend\obj\Debug\net8.0\ref\HireMind Backend.dll
