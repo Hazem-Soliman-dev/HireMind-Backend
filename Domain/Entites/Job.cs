@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Domain
+namespace HireMind.Domain.Entites
 {
     public enum JobStatus
     {
@@ -23,5 +23,7 @@ namespace Domain
         public JobStatus Status { get; set; } = JobStatus.Draft;
         public virtual ApplicationUser ApplicationUser { get; set; }
         public virtual List<Application> Applications { get; set; }
+        public List<string> Requirmement { get; set; }
+
     }
 }

@@ -1,4 +1,4 @@
-﻿using Domain;
+﻿using HireMind.Domain.Entites;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using System;
@@ -19,5 +19,9 @@ namespace HireMind.Infrastructure
         }
         public DbSet<Job> Jobs { get; set; }
         public DbSet<Application> Applications { get; set; }    
+        public DbSet<Subscription> Subscriptions { get; set; }
+        public DbSet<Interview> Interviews { get; set; }
+        public DbSet<Feedback> Feedbacks { get; set; }
+
     }
 }
