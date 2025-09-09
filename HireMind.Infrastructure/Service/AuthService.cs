@@ -1,4 +1,5 @@
-﻿using HireMind.Application.DTO;
+﻿using Azure.Core;
+using HireMind.Application.DTO;
 using HireMind.Domain.Entites;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
@@ -20,12 +21,14 @@ namespace HireMind.Infrastructure.Service
     {
         private readonly UserManager<ApplicationUser> userManager;
         private readonly RoleManager<IdentityRole> roleManager;
+        private readonly IEmailService emailService;
         private readonly JWT jWT;
 
-        public AuthService(UserManager<ApplicationUser> userManager, RoleManager<IdentityRole> roleManager, IOptions<JWT> jWT)
+        public AuthService(UserManager<ApplicationUser> userManager, RoleManager<IdentityRole> roleManager, IOptions<JWT> jWT, IEmailService emailService)
         {
             this.userManager = userManager;
             this.roleManager = roleManager;
+            this.emailService = emailService;
             this.jWT = jWT.Value;
         }        
         public async Task<AuthModel> RegisterAsync(RegisterModel model)
@@ -59,6 +62,14 @@ namespace HireMind.Infrastructure.Service
             user.RefreshTokenExpiryTime = DateTime.UtcNow.AddDays(2);
             await userManager.UpdateAsync(user);
 
+
+            var token = await userManager.GenerateEmailConfirmationTokenAsync(user);
+            var encodedToken = System.Web.HttpUtility.UrlEncode(token);
+            var link = $"https://localhost:3000/verify-email?userId={user.Id}&token={encodedToken}";
+
+            await emailService.SendEmailAsync(user.Email, $"Verify your email Click here: {link}");
+
+
             return new AuthModel
             {
                 IsAuthenticated = true,
@@ -84,6 +95,14 @@ namespace HireMind.Infrastructure.Service
                 {
                     IsAuthenticated = false,
                     Message = "Email or Password is incorrect!"
+                };
+            }
+            if (!user.EmailConfirmed)
+            {
+                return new AuthModel
+                {
+                    IsAuthenticated = false,
+                    Message = "Email is not confirmed!"
                 };
             }
 
@@ -249,5 +268,32 @@ namespace HireMind.Infrastructure.Service
 
             return await userManager.ResetPasswordAsync(user, decodedToken, model.NewPassword);
         }
+
+        public async Task<IdentityResult> VerifyEmailAsync(VerifyEmailRequest model)
+        {
+            var user = await userManager.FindByIdAsync(model.UserId);
+            if (user == null) return IdentityResult.Failed(new IdentityError { Description = "Something is wrong." });
+
+            var result = await userManager.ConfirmEmailAsync(user, model.Token);
+            return result;
+        }
+
+        public async Task<IdentityResult> ResendVerificationEmailAsync(ResendVerificationRequest model)
+        {
+            var user = await userManager.FindByEmailAsync(model.Email);
+            if (user == null) return IdentityResult.Failed(new IdentityError { Description = "Something is wrong." });
+            if (user.EmailConfirmed) return IdentityResult.Failed(new IdentityError { Description = "Email is already confirmed." });
+
+            var token = await userManager.GenerateEmailConfirmationTokenAsync(user);
+            var encodedToken = System.Web.HttpUtility.UrlEncode(token);
+            var link = $"https://yourfrontend.com/verify-email?userId={user.Id}&token={encodedToken}";
+
+            await emailService.SendEmailAsync(user.Email, $"Verify your email\n Please confirm your account by clicking this link: {link}");
+
+            return IdentityResult.Success;
+        }
+
+
+
     }
 }

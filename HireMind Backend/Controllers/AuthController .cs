@@ -2,6 +2,7 @@
 using HireMind.Infrastructure.Service;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.Data;
 using Microsoft.AspNetCore.Mvc;
 
@@ -146,5 +147,30 @@ namespace HireMind_Backend.Controllers
         }
 
 
+        [HttpPost("verify-email")]
+        public async Task<IActionResult> VerifyEmail([FromBody] VerifyEmailRequest request)
+        {
+            if(!ModelState.IsValid)
+                return BadRequest(ModelState);
+            var result = await authService.VerifyEmailAsync(request);
+
+            if (!result.Succeeded)
+                return BadRequest(result.Errors);
+            return Ok("Email verified successfully.");
+        }
+
+        [HttpPost("resend-verification")]
+        public async Task<IActionResult> ResendVerification([FromBody] ResendVerificationRequest request)
+        {
+            if (!ModelState.IsValid)
+                return BadRequest(ModelState);
+
+            var result = await authService.ResendVerificationEmailAsync(request);
+
+
+            if (!result.Succeeded)
+                return BadRequest(result.Errors);
+            return Ok("The Verification is sent");
+        }
     }
 }

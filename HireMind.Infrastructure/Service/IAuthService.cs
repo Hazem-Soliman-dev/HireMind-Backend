@@ -18,5 +18,7 @@ namespace HireMind.Infrastructure.Service
         Task<IdentityResult> ChangePasswordAsync(string userId, ChangePasswordModel model);
         Task<string> ForgotPasswordAsync(string email);
         Task<IdentityResult> ResetPasswordAsync(ResetPasswordModel model);
+        Task<IdentityResult> VerifyEmailAsync(VerifyEmailRequest model);
+        Task<IdentityResult> ResendVerificationEmailAsync(ResendVerificationRequest model);
     }
 }
