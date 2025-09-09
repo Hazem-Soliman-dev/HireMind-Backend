@@ -17,7 +17,7 @@ builder.Services.AddSwaggerGen();
 builder.Services.Configure<JWT>(builder.Configuration.GetSection("JWT"));
 
 builder.Services.AddDbContext<ApplicationDbContext>(options =>
-    options.UseSqlServer(builder.Configuration.GetConnectionString("HamdySaad")));
+    options.UseSqlServer(builder.Configuration.GetConnectionString("Monster")));
 
 builder.Services.AddIdentity<ApplicationUser, IdentityRole>()
     .AddEntityFrameworkStores<ApplicationDbContext>();
