@@ -11,5 +11,9 @@ namespace HireMind.Domain.Entites
     {
         public string? RefreshToken { get; set; }
         public DateTime RefreshTokenExpiryTime { get; set; }
+        public string Company { get; set; }
+        public string FName { get; set; }
+        public string LName { get; set; }
+
     }
 }

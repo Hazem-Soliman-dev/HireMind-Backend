@@ -4,6 +4,7 @@ using HireMind.Domain.Entites;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Options;
 using Microsoft.IdentityModel.Tokens;
 using System;
@@ -23,24 +24,28 @@ namespace HireMind.Infrastructure.Service
         private readonly RoleManager<IdentityRole> roleManager;
         private readonly IEmailService emailService;
         private readonly JWT jWT;
+        private readonly IConfiguration configuration;
 
-        public AuthService(UserManager<ApplicationUser> userManager, RoleManager<IdentityRole> roleManager, IOptions<JWT> jWT, IEmailService emailService)
+
+        public AuthService(UserManager<ApplicationUser> userManager, RoleManager<IdentityRole> roleManager, IOptions<JWT> jWT, IEmailService emailService,IConfiguration configuration)
         {
             this.userManager = userManager;
             this.roleManager = roleManager;
             this.emailService = emailService;
             this.jWT = jWT.Value;
+            this.configuration = configuration;
         }        
         public async Task<AuthModel> RegisterAsync(RegisterModel model)
         {
             if (await userManager.FindByEmailAsync(model.Email) is not null)
                 return new AuthModel { Message = "Email is already registered!" };
-
-            if (await userManager.FindByNameAsync(model.UserName) is not null)
-                return new AuthModel { Message = "Username is already registered!" };
+           
             var user = new ApplicationUser
             {
-                UserName = model.UserName,
+                PhoneNumber = model.PhoneNumber,
+                FName = model.FName,
+                LName = model.LName,
+                Company = model.Company,
                 Email = model.Email
             };
             var result = await userManager.CreateAsync(user, model.Password);
@@ -59,13 +64,14 @@ namespace HireMind.Infrastructure.Service
 
             var refreshToken = GenerateRefreshToken();
             user.RefreshToken = refreshToken;
-            user.RefreshTokenExpiryTime = DateTime.UtcNow.AddDays(2);
+            user.RefreshTokenExpiryTime = DateTime.UtcNow.AddDays(7);
             await userManager.UpdateAsync(user);
 
 
             var token = await userManager.GenerateEmailConfirmationTokenAsync(user);
             var encodedToken = System.Web.HttpUtility.UrlEncode(token);
-            var link = $"https://localhost:3000/verify-email?userId={user.Id}&token={encodedToken}";
+            var frontendUrl = configuration.GetValue<string>("DM");
+            var link = $"{frontendUrl}/verify-email?userId={user.Id}&token={encodedToken}";
 
             await emailService.SendEmailAsync(user.Email, $"Verify your email Click here: {link}");
 
@@ -126,7 +132,7 @@ namespace HireMind.Infrastructure.Service
 
             var newRefreshToken = GenerateRefreshToken();
             user.RefreshToken = newRefreshToken;
-            user.RefreshTokenExpiryTime = DateTime.UtcNow.AddDays(2);
+            user.RefreshTokenExpiryTime = DateTime.UtcNow.AddDays(7);
             await userManager.UpdateAsync(user);
 
             return new AuthModel
@@ -198,7 +204,7 @@ namespace HireMind.Infrastructure.Service
             var newRefreshToken = GenerateRefreshToken();
 
             user.RefreshToken = newRefreshToken;
-            user.RefreshTokenExpiryTime = DateTime.UtcNow.AddDays(2);
+            user.RefreshTokenExpiryTime = DateTime.UtcNow.AddDays(7);
             await userManager.UpdateAsync(user);
 
             return new AuthModel
@@ -254,8 +260,11 @@ namespace HireMind.Infrastructure.Service
 
             var token = await userManager.GeneratePasswordResetTokenAsync(user);
 
-            var resetLink = $"https://localhost:3000/reset-password?email={email}&token={Uri.EscapeDataString(token)}";
-            return resetLink;
+            var FrontendUrl = configuration.GetValue<string>("DM");
+            var resetLink = $"{FrontendUrl}/reset-password?email={email}&token={Uri.EscapeDataString(token)}";
+            await emailService.SendEmailAsync(user.Email, $"Reset Password Link\n Please reset your password by clicking this link: {resetLink}");
+            return  "Password reset link has been sent to your email." ;
+            
         }
 
         public async Task<IdentityResult> ResetPasswordAsync(ResetPasswordModel model)
@@ -286,14 +295,27 @@ namespace HireMind.Infrastructure.Service
 
             var token = await userManager.GenerateEmailConfirmationTokenAsync(user);
             var encodedToken = System.Web.HttpUtility.UrlEncode(token);
-            var link = $"https://yourfrontend.com/verify-email?userId={user.Id}&token={encodedToken}";
+            var frontendUrl = configuration.GetValue<string>("DM");
+            var link = $"{frontendUrl}/verify-email?userId={user.Id}&token={encodedToken}";
 
             await emailService.SendEmailAsync(user.Email, $"Verify your email\n Please confirm your account by clicking this link: {link}");
 
             return IdentityResult.Success;
         }
 
+        public async Task<ProfileDTO> GetCurrentUserAsync(string userId)
+        {
+            var user = await userManager.FindByIdAsync(userId);
+            if (user == null) return null;
+            return new ProfileDTO
+            {
+                Email = user.Email,
+                Company = user.Company,
+                FName = user.FName,
+                LName = user.LName,
+                PhoneNumber = user.PhoneNumber
+            };
 
-
+        }
     }
 }

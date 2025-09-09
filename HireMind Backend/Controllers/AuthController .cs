@@ -172,5 +172,17 @@ namespace HireMind_Backend.Controllers
                 return BadRequest(result.Errors);
             return Ok("The Verification is sent");
         }
+        [HttpGet("Me")]
+        [Authorize]
+        public async Task<IActionResult> GetCurrentUser()
+        {
+            var userId = User.FindFirst("uid")?.Value;
+            if (userId == null)
+                return BadRequest("Invalid user");
+            var result = await authService.GetCurrentUserAsync(userId);
+            if (result == null)
+                return NotFound("User not found");
+            return Ok(result);
+        }
     }
 }

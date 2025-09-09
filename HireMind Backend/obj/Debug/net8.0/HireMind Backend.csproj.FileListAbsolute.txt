@@ -348,3 +348,6 @@ C:\Users\Home\Source\Repos\HireMind-Backend\HireMind Backend\obj\Debug\net8.0\re
 C:\Users\Hamdy\Desktop\HireMind\HireMind-Backend\HireMind Backend\bin\Debug\net8.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
 C:\Users\Hamdy\Desktop\HireMind\HireMind-Backend\HireMind Backend\bin\Debug\net8.0\HireMind.Application.dll
 C:\Users\Hamdy\Desktop\HireMind\HireMind-Backend\HireMind Backend\bin\Debug\net8.0\HireMind.Application.pdb
+C:\Users\Home\Source\Repos\HireMind-Backend\HireMind Backend\bin\Debug\net8.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
+C:\Users\Home\Source\Repos\HireMind-Backend\HireMind Backend\bin\Debug\net8.0\HireMind.Application.dll
+C:\Users\Home\Source\Repos\HireMind-Backend\HireMind Backend\bin\Debug\net8.0\HireMind.Application.pdb

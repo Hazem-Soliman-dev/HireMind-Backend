@@ -4436,23 +4436,23 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Hamdy\\.nuget\\packages\\": {},
+    "C:\\Users\\Home\\.nuget\\packages\\": {},
     "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Hamdy\\Desktop\\HireMind\\HireMind-Backend\\HireMind Backend\\HireMind Backend.csproj",
+      "projectUniqueName": "C:\\Users\\Home\\Source\\Repos\\HireMind-Backend\\HireMind Backend\\HireMind Backend.csproj",
       "projectName": "HireMind Backend",
-      "projectPath": "C:\\Users\\Hamdy\\Desktop\\HireMind\\HireMind-Backend\\HireMind Backend\\HireMind Backend.csproj",
-      "packagesPath": "C:\\Users\\Hamdy\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Hamdy\\Desktop\\HireMind\\HireMind-Backend\\HireMind Backend\\obj\\",
+      "projectPath": "C:\\Users\\Home\\Source\\Repos\\HireMind-Backend\\HireMind Backend\\HireMind Backend.csproj",
+      "packagesPath": "C:\\Users\\Home\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\Home\\Source\\Repos\\HireMind-Backend\\HireMind Backend\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
       ],
       "configFilePaths": [
-        "C:\\Users\\Hamdy\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\Home\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
@@ -4467,14 +4467,14 @@
         "net8.0": {
           "targetAlias": "net8.0",
           "projectReferences": {
-            "C:\\Users\\Hamdy\\Desktop\\HireMind\\HireMind-Backend\\Domain\\HireMind.Domain.csproj": {
-              "projectPath": "C:\\Users\\Hamdy\\Desktop\\HireMind\\HireMind-Backend\\Domain\\HireMind.Domain.csproj"
+            "C:\\Users\\Home\\Source\\Repos\\HireMind-Backend\\Domain\\HireMind.Domain.csproj": {
+              "projectPath": "C:\\Users\\Home\\Source\\Repos\\HireMind-Backend\\Domain\\HireMind.Domain.csproj"
             },
-            "C:\\Users\\Hamdy\\Desktop\\HireMind\\HireMind-Backend\\HireMind.Application\\HireMind.Application.csproj": {
-              "projectPath": "C:\\Users\\Hamdy\\Desktop\\HireMind\\HireMind-Backend\\HireMind.Application\\HireMind.Application.csproj"
+            "C:\\Users\\Home\\Source\\Repos\\HireMind-Backend\\HireMind.Application\\HireMind.Application.csproj": {
+              "projectPath": "C:\\Users\\Home\\Source\\Repos\\HireMind-Backend\\HireMind.Application\\HireMind.Application.csproj"
             },
-            "C:\\Users\\Hamdy\\Desktop\\HireMind\\HireMind-Backend\\HireMind.Infrastructure\\HireMind.Infrastructure.csproj": {
-              "projectPath": "C:\\Users\\Hamdy\\Desktop\\HireMind\\HireMind-Backend\\HireMind.Infrastructure\\HireMind.Infrastructure.csproj"
+            "C:\\Users\\Home\\Source\\Repos\\HireMind-Backend\\HireMind.Infrastructure\\HireMind.Infrastructure.csproj": {
+              "projectPath": "C:\\Users\\Home\\Source\\Repos\\HireMind-Backend\\HireMind.Infrastructure\\HireMind.Infrastructure.csproj"
             }
           }
         }
