@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("HireMind Backend")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+c65e5b8bfdd6f6f2b7edda162ee0d48fdb79dad3")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+5532780a708c5392324367ea8b9e953fc036fff8")]
 [assembly: System.Reflection.AssemblyProductAttribute("HireMind Backend")]
 [assembly: System.Reflection.AssemblyTitleAttribute("HireMind Backend")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
